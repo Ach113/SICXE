@@ -11,6 +11,19 @@ using namespace std;
 
 enum instruction_length {format1=8, format2=16, format3=24, format4=32};
 
+enum literal_type {
+	ascii, // C'_'
+	hex,  // X'_'
+	immediate, // #_
+	indirect, // @_
+	simple // _
+};
+
+struct Literal {
+	vector<uint8_t> bytes;
+	literal_type type;
+};
+
 // KEY -> mnemonic operand, VALUE -> (machine opcode, instruction format/length)
 unordered_map<string, tuple<uint8_t, instruction_length>> OPTAB;
 
