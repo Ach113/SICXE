@@ -95,6 +95,7 @@ void Parser::generate_object_code() {
 	// first pass
 	for (Instruction ins : this->instructions) {
 		// initialize the symbol table, insert all labels with LOCCTR=0
+		// after all labels are resolved, all corresponding values will be nonzero
 		if (ins.label != "") {
 			this->SYMTAB[ins.label] = 0;
 		}
