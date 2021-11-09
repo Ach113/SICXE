@@ -10,17 +10,17 @@
 using namespace std;
 
 struct Instruction {
-	string label, opcode, value;
+	string label, opcode, operand;
 };
 
 class Parser {
 	private:
 		vector<Instruction> instructions;
-		unordered_map<string, uint32_t> SYMTAB;
+		unordered_map<string, int> SYMTAB;
 		uint32_t LOCCTR;
 	public:
 		Parser(string filename);
-		void generate_object_code();
+		void run();
 };
 
 #endif
